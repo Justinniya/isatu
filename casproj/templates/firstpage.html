@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Monify.com
+    </title>
+    <link rel="icon" type="image/x-icon" href="static/pictures/isatulogo (1).png">
+    <link rel="stylesheet" href="static/css/firstpage.css">
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="static/pictures/isatulogo.png" class = "logo">
+            <ul>
+                <li> <a href="{{'message'}}">Message</a></li>
+                <li> <a href="{{'firstpage'}}">Home</a></li>
+                <li> <a href="{{'features'}}">Features</a></li>
+                <li> <a href="{{'about'}}">About</a></li>
+                <li> <a href="{{'contact'}}">Contact</a></li>
+            </ul>
+            <img src="static/pictures/isatulogo.png" class = "user-pic" onclick="toggleMenu()">
+
+            <div class="sub-menu-wrap" id = "subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="isatulogo.png">
+                        <h2>{{ name }}</h2>
+                    </div>
+                    <hr>
+
+                    <a href="#" class ="sub-menu-link" >
+                        <img src="profile.png">
+                        <p> Edit Profile</p>
+                        <span>></span>
+                    </a>
+
+                        <a href="#" class ="sub-menu-link">
+                        <img src="settings.png">
+                        <p> Settings</p>
+                        <span>></span>
+                    </a>
+
+                        <a href="#" class ="sub-menu-link">
+                        <img src="help.png">
+                        <p> Help </p>
+                        <span>></span>
+                    </a>
+
+                        <a href="{{ 'logout' }}" class ="sub-menu-link">
+                        <img src="logout.png">
+                        <p> Log out</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    <form action="submit" method="POST">
+        <div class="dashboard">
+            <h1>List of Documents available for request</h1>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <p>Official Transcript of Records(OTR)</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Official Transcript of Records(OTR)">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Secondary Permanent Records(F137-A/SF 10)</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Secondary Permanent Records(F137-A/SF 10)">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row" >
+                    <p>Certifications</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Certifications">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Certificate of Transfer Credentials</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Certificate of Transfer Credentials">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Certification, Auth. & Verification(CAV)</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Certification, Auth. & Verification(CAV)">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Authentication of Academic Records</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Authentication of Academic Records">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Report Card</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Report Card">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Report of Grades</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Report of Grades">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Certificate of Registration</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Certificate of Registration">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Reassurance of Diploma/Proficiency</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Reassurance of Diploma/Proficiency">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Certificate</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Certificate">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="row">
+                    <p>Appraisal Fee</p>
+                    <label>
+                        <input type = "checkbox" name="option" class="formCheckbox" value="Appraisal Fee">
+                        <span></span>
+                    </label>
+                </div>
+
+            </div>
+            <div class="container2" style = "display: none;">
+                <div class="payment">
+                    <p>Payment Method</p>
+                    <hr>
+                    <select id = "paymentselection" onchange="showMessage()">
+                        <option value = "1">Select</option>
+                        <option value = "2">Cash</option>
+                        <option value = "3">GCash</option>
+                    </select>
+
+                    <button id = "submitButton" style="display: none;" onclick="window.location.href='{{url_for('payment')}}';">Submit</button>
+                <div id = 'message'></div>
+                </div>
+            </div>
+        </div>
+</form>
+    </div>
+
+    <script>
+        let subMenu = document.getElementById("subMenu");
+
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
+
+        function showMessage() {
+    var selectElement = document.getElementById("paymentselection");
+    var messageElement = document.getElementById("message");
+    var selectedOption = selectElement.value;
+    var button = document.getElementById("submitButton");
+
+    if (selectedOption === "1") {
+        messageElement.innerText = "Please Choose Payment method";
+        button.style.display = "none";
+    } else if (selectedOption === "2") {
+        messageElement.innerText = "Pay at the cashier.";
+        button.style.display = "none";
+    } else if (selectedOption === "3") {
+        messageElement.innerHTML = "";
+        messageElement.innerText = "Please scan and send proof of payment.";
+        var img = document.createElement("img");
+        img.src = "static/pictures/QR.jpg"; // Provide the path to your image
+        img.classList.add("payment-image"); // Add class name to the image
+        messageElement.appendChild(img);
+        var uploadInput = document.createElement("input");
+        uploadInput.type = "file";
+        uploadInput.accept = "image/*"; // Allow only image files
+        messageElement.appendChild(uploadInput);
+        button.style.display = "block";
+    } else {
+        messageElement.innerText = "";
+    }
+}
+
+        var checkboxes = document.querySelectorAll(".formCheckbox");
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener("change", function() {
+                var container2 = document.querySelector(".container2");
+
+                var anyChecked = Array.from(checkboxes).some(function(checkbox) {
+                    return checkbox.checked;
+                });
+                container2.style.display = anyChecked ? "block" : "none";
+                if (anyChecked) {
+                    document.getElementById("submitButton").style.display = "block";
+                } else {
+                    document.getElementById("submitButton").style.display = "none";
+                }
+            });
+        });
+
+        function saveFormData() {
+    var selectedForms = [];
+    document.querySelectorAll('.formCheckbox:checked').forEach(function(checkbox) {
+        selectedForms.push(checkbox.value);
+    });
+
+    var studentName = "Cassandra Valerie Bernal"; // Example student name, replace with actual value
+    var studentID = "123456"; // Example student ID, replace with actual value
+
+    // Send selected forms to save_form_request.php via AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "save_form_request.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Handle successful response
+                console.log(xhr.responseText);
+            } else {
+                // Handle error
+                console.error(xhr.statusText);
+            }
+        }
+    };
+    xhr.send("student_name=" + encodeURIComponent(studentName) + "&student_id=" + encodeURIComponent(studentID) + "&selected_forms=" + encodeURIComponent(JSON.stringify(selectedForms)));
+}
+
+    </script>
+</body>
+</html>

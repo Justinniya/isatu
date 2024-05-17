@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Monify.com
+    </title>
+    <link rel="icon" type="image/x-icon" href="isatulogo (1).png">
+    <link rel="stylesheet" href="static/css/payment.css">
+     <link rel="stylesheet" href="static/css/registrar_dashboard.css">
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="static/pictures/isatulogo (1).png" class = "logo">
+            <ul>
+                <li> <a href="{{'message'}}">Message</a></li>
+                <li> <a href="{{'firstpage'}}">Home</a></li>
+                <li> <a href="{{'features'}}">Features</a></li>
+                <li> <a href="{{'about'}}">About</a></li>
+                <li> <a href="{{'contact'}}">Contact</a></li>
+            </ul>
+            <img src="static/pictures/isatulogo (1).png" class = "user-pic" onclick="toggleMenu()">
+        </nav>
+<div class="container">
+    <h1>Registrar Dashboard</h1>
+    <div class="filters">
+
+
+
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Requested Form</th>
+                <th>Requested Date</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody id="transactionList">
+            <!-- Transaction rows will be dynamically added here -->
+        </tbody>
+    </table>
+</div>
+    </div>
+<script>
+    // Sample data for transactions (replace with actual data)
+const transactions = {{ transaction|tojson }};
+
+// Function to display transactions based on filter and search query
+function displayTransactions(filter, search) {
+    const transactionList = document.getElementById('transactionList');
+    transactionList.innerHTML = '';
+
+    transactions.forEach(transaction => {
+        if ((filter === 'all' || transaction.description.includes(filter)) &&
+            (search === '' || transaction.description.toLowerCase().includes(search.toLowerCase()))) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${transaction.sname}</td>
+                <td>${transaction.sid}</td>
+                <td>${transaction.request}</td>
+                <td>${transaction.rdate}</td>
+                <td><a href="{{'message_from_registrar/${transaction.id}'}}">Accept</a> | <a href="{{'messages_from_registrar/${transaction.id}'}}">Decline</a></th>
+            `;
+            transactionList.appendChild(row);
+        }
+    });
+}
+
+// Initial display of all transactions
+displayTransactions('all', '');
+
+// Event listeners for filter and search
+document.getElementById('filter').addEventListener('change', function() {
+    const filter = this.value;
+    const search = document.getElementById('search').value.trim();
+    displayTransactions(filter, search);
+});
+
+document.getElementById('search').addEventListener('input', function() {
+    const filter = document.getElementById('filter').value;
+    const search = this.value.trim();
+    displayTransactions(filter, search);
+});
+
+</script>
+</body>
+</html>

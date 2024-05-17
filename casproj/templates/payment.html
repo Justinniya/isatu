@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Monify.com
+    </title>
+    <link rel="icon" type="image/x-icon" href="isatulogo (1).png">
+    <link rel="stylesheet" href="static/css/payment.css">
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="static/pictures/isatulogo (1).png" class = "logo">
+            <ul>
+                <li> <a href="{{'message'}}">Message</a></li>
+                <li> <a href="{{'firstpage'}}">Home</a></li>
+                <li> <a href="{{'features'}}">Features</a></li>
+                <li> <a href="{{'about'}}">About</a></li>
+                <li> <a href="{{'contact'}}">Contact</a></li>
+            </ul>
+            <img src="static/pictures/isatulogo (1).png" class = "user-pic" onclick="toggleMenu()">
+        </nav>
+        <div class="container">
+            <h2>
+                You successfully submitted your request!
+            </h2>
+            <h3>
+                We will send an appointment schedule on your email.
+            </h3>
+        </div>
+    </div>
+    <script>
+        function showMessage()
+            {
+            var inputemail= document.getElementById("email").value;
+            if (inputemail === "")
+            {
+                alert("Enter email address");
+                die();
+            }
+            else if (!isValidEmail(inputemail))
+            {
+                alert("Enter Valid Address.");
+                die();
+            }
+            else{
+                event.preventDefault();
+                window.location.href="SuccessfulInfo.php";
+                die();
+            }
+        }
+
+        function isValidEmail(inputemail) {
+        var emailRegex = /^[^\s]+[^\s@]+\.[^\s]+$/;
+        return emailRegex.test(inputemail);
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+*{
+    margin: 0;
+    padding: 0;
+    scrollbar-width: 1px;
+    scrollbar-width: hidden;
+    scroll-behavior: smooth;
+}
+.hero{
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7)50%, rgba(0,0,0,0.7)50%), url(isatu.jfif);
+    background-position: center;
+    background-size: fill;
+    height: 150vh;
+}
+nav{
+    background: linear-gradient(rgba(255,255,255,0.3)50%, rgba(255,255,255,0.3)50%);
+    width: 80%;
+    padding: 10px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.logo{
+    width: 60px;
+    margin-left: -100px;
+}
+.user-pic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: -90px;
+}
+nav ul{
+    width: 100%;
+    text-align: left;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+    font-size: 17px;
+}
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: #ff0;
+    font-size:20px;
+    transition-delay: 0.2s ;
+}
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 2%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background-color: #fff;
+    padding: 20px;
+    margin:10px
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info h3{
+    font-weight: 500;
+}
+.user-info img{
+    width: 90px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #ccc;
+    margin: 15px 0 10px;
+}
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+.sub-menu-link p{
+    width: 100%;
+}
+.sub-menu-link img{
+    width: 30px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    padding: 2px;
+    margin-right: 15px;
+}
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+.dashboard{
+    height: 85vh;
+    width: 99%;
+    margin: 10px;
+    border-radius: 20px;
+}
+.dashboard h1{
+    width: 90%;
+    position: left;
+    color: #fff000;
+    padding: 10px;
+    margin: 5px;
+}
+.container{
+    width: 500px;
+    padding: 25px;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    margin-top: 15px;
+    height: 800px;
+    margin-left: 50px;
+    
+}
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30px;
+    margin-top: 25px;
+}
+label {
+    position: relative;
+    height: 30px ;
+    width: 30px;
+    margin: 5px;
+
+}
+input{
+    width: 55px;
+    height: 35px;
+    position: absolute;
+    margin-left: -10px;
+}
+label span{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 3px solid white;
+    border-radius: 6px;
+    cursor: pointer;
+} 
+.row p{
+    color: #fff;
+    font-size: 10px;
+}
+.container2{
+    width: 500px;
+    height: 88%;
+    margin-left: 900px;
+    margin-top: -850px;
+    color: #fff;
+    font-size: 50px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    background: linear-gradient(rgba(255,255,255,0.1)50%,rgba(255,255,255,0.1)50%);
+/*max-height: 0px;*/
+}
+.payment p{
+    width: 100%;
+    height: 100%;
+    margin: 15px 0 10px 80px;
+}
+.container2 #paymentselection{
+    width:170px;
+    height: 30px;
+    margin: 20px;
+    margin-left: 150px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#message{
+    height: 100%;
+    width: 100%;
+    margin: 10px;
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+#submitButton{
+    position: fixed ;
+    margin-top: 90px;
+    margin-left: 200px;
+    background-color: yellow;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#qrpic{
+    width: 100px;
+    height: 50px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Monify.com</title>
+    <link rel="icon" type="image/x-icon" href="static/pictures/isatulogo (1).png">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <img src="static/pictures/isatulogo (1).png" alt="Isat U LOGO">
+            <div class="icon">
+                <h2 class="logo"> MONIFY</h2>
+            </div>
+        </div>
+        <div class="form">
+            <h1>Office of the<br> <span> University Registrar</span></h1>
+            <p class="description">The University Registrar's Office oversees student admissions, registration,
+                grade reporting, transcript generation, and academic record maintenance. Its goal is to support
+                students throughout their university experience, offering academic resources and references via
+                its website from admission to graduation.</p>
+        </div>
+        <form action="login" method="post">
+            <h2>Log in Here</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for i in messages %}
+                        <h4> {{ i }}</h4>
+                    {% endfor %}
+                {% endif%}
+            {% endwith %}
+            <input id="username" type="text" name="username" placeholder="Username">
+            <input id="password" type="password" name="password" placeholder="Password">
+            <button type="submit" name="submit" id="loginbutton">Log in</button>
+            <p class="link">Forgot Password?</p>
+        </form>
+    </div>
+</body>
+</html>
